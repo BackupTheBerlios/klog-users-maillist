@@ -1,0 +1,279 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Klog-users] trouble building klog
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/klog-users/2010-May/index.html" >
+   <LINK REL="made" HREF="mailto:klog-users%40lists.berlios.de?Subject=Re%3A%20%5BKlog-users%5D%20trouble%20building%20klog&In-Reply-To=%3C201005021936.59989.ab4bd%40georgelemigh.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   
+   <LINK REL="Next"  HREF="000074.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Klog-users] trouble building klog</H1>
+    <B>George L. Emigh</B> 
+    <A HREF="mailto:klog-users%40lists.berlios.de?Subject=Re%3A%20%5BKlog-users%5D%20trouble%20building%20klog&In-Reply-To=%3C201005021936.59989.ab4bd%40georgelemigh.com%3E"
+       TITLE="[Klog-users] trouble building klog">ab4bd at georgelemigh.com
+       </A><BR>
+    <I>Mon May  3 01:36:59 CEST 2010</I>
+    <P><UL>
+        
+        <LI>Next message: <A HREF="000074.html">[Klog-users] trouble building klog
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#73">[ date ]</a>
+              <a href="thread.html#73">[ thread ]</a>
+              <a href="subject.html#73">[ subject ]</a>
+              <a href="author.html#73">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Ok;
+
+Hopefully I will remember everything.
+
+I have made a functional cmake find macro based on the LibFindMacros
+as documented here: <A HREF="http://www.vtk.org/Wiki/CMake:How_To_Find_Libraries">http://www.vtk.org/Wiki/CMake:How_To_Find_Libraries</A>
+
+In klog-0.5.4/cmake add these files:
+LibFindMacros.cmake
+FindHamlib.cmake
+
+here is klog-0.5.4/CMakeLists.txt
+
+====== tear here ======
+project(klog)
+
+set(CMAKE_MODULE_PATH &quot;${CMAKE_SOURCE_DIR}/cmake&quot;)
+set (VERSION 0.5.2)
+
+find_package(KDE4 REQUIRED)
+include (KDE4Defaults)
+
+find_PACKAGE(Hamlib REQUIRED)
+if (HAMLIB_FOUND)
+    message( STATUS &quot;Hamlib library found in: ${HAMLIB_LIBRARY}&quot; )
+    message( STATUS &quot;Hamlib includes found in: ${HAMLIB_INCLUDE_DIR}&quot; )
+endif (HAMLIB_FOUND)
+
+include_directories( ${KDE4_INCLUDES} ${QT_INCLUDES} )
+
+add_subdirectory( src )
+add_subdirectory( icons )
+add_subdirectory( po )
+
+======  tear here ======
+
+In klog-0.5.4/src/CMakeLists.txt
+change the line:
+target_link_libraries(klog ${KDE4_KDEUI_LIBS} ${KDE4_KDECORE_LIBS} hamlib)
+
+to
+
+target_link_libraries(klog ${KDE4_KDEUI_LIBS} ${KDE4_KDECORE_LIBS} ${HAMLIB_LIBRARY})
+
+And that works for me.
+
+
+On Tuesday 13 April 2010, Jaime Robles wrote:
+  &gt; I am glad to read that you fixed it although, as you say it is not the
+  &gt; best solution.
+  &gt; 
+  &gt; I can't add that patch to the general sources.
+  &gt; 
+  &gt; If you get the best solution, please sent it to me to add it to the
+  &gt; KLog's sources.
+  &gt; 
+  &gt; Thanks!
+  &gt; 
+  &gt; Jaime
+  &gt; 
+  &gt; El 12/04/2010, a las 23:25, &quot;George L. Emigh&quot; &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/klog-users">ab4bd at georgelemigh.com</A>&gt;
+  &gt; 
+  &gt; escribi&#243;:
+  &gt; &gt; While not the really correct solution, it was the quickest, all I
+  &gt; &gt; had to do
+  &gt; &gt; was add:
+  &gt; &gt; 
+  &gt; &gt; LINK_DIRECTORIES( /usr/lib64/hamlib )
+  &gt; &gt; 
+  &gt; &gt; to the:
+  &gt; &gt; 
+  &gt; &gt; klog-0.5.4/src/CMakeLists.txt
+  &gt; &gt; 
+  &gt; &gt; file.
+  &gt; &gt; 
+  &gt; &gt; rerun cmake -DCMAKE_INSTALL_PREFIX=/usr ..
+  &gt; &gt; and make
+  &gt; &gt; 
+  &gt; &gt; 
+  &gt; &gt; Tnx;
+  &gt; &gt; 
+  &gt; &gt; 73
+  &gt; &gt; 
+  &gt; &gt; On Monday 12 April 2010, Jaime Robles wrote:
+  &gt; &gt;&gt; Hello,
+  &gt; &gt;&gt; Taking into account what Andrew has told you and having in mind
+  &gt; &gt;&gt; that I
+  &gt; &gt;&gt; don't know how Gentoo manages its packages... Hace you &quot;emerged&quot; the
+  &gt; &gt;&gt; hamlib-dev package?
+  &gt; &gt;&gt; 
+  &gt; &gt;&gt; In order to compile KLog you need the -dev package of hamlib.
+  &gt; &gt;&gt; 
+  &gt; &gt;&gt; Keep us informed!
+  &gt; &gt;&gt; 
+  &gt; &gt;&gt; Jaime
+  &gt; &gt;&gt; 
+  &gt; &gt;&gt; El 11/04/2010, a las 23:11, &quot;George L. Emigh&quot;
+  &gt; &gt;&gt; &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/klog-users">ab4bd at georgelemigh.com</A>&gt;
+  &gt; &gt;&gt; 
+  &gt; &gt;&gt; escribi&#243;:
+  &gt; &gt;&gt;&gt; I'm trying to build klog on my Gentoo system, when I manually tried
+  &gt; &gt;&gt;&gt; to build it,
+  &gt; &gt;&gt;&gt; I got the same error as listed here, currently I'm trying to build
+  &gt; &gt;&gt;&gt; it using an ebuild
+  &gt; &gt;&gt;&gt; script to install it the Gentoo way, but still it cannot find
+  &gt; &gt;&gt;&gt; hamlib.
+  &gt; &gt;&gt;&gt; 
+  &gt; &gt;&gt;&gt; the currently installed hamlib is hamlib-1.2.10
+  &gt; &gt;&gt;&gt; 
+  &gt; &gt;&gt;&gt; Any idea what may be the problem here?
+  &gt; &gt;&gt;&gt; 
+  &gt; &gt;&gt;&gt; [100%] Building CXX object src/CMakeFiles/klog.dir/qrc_klog-
+  &gt; &gt;&gt;&gt; resources.o
+  &gt; &gt;&gt;&gt; Linking CXX executable klog
+  &gt; &gt;&gt;&gt; /usr/lib/gcc/x86_64-pc-linux-gnu/4.4.3/../../../../x86_64-pc-linux-
+  &gt; &gt;&gt;&gt; gnu/bin/ld: cannot find -lhamlib
+  &gt; &gt;&gt;&gt; collect2: ld returned 1 exit status
+  &gt; &gt;&gt;&gt; make[2]: *** [src/klog] Error 1
+  &gt; &gt;&gt;&gt; make[1]: *** [src/CMakeFiles/klog.dir/all] Error 2
+  &gt; &gt;&gt;&gt; make: *** [all] Error 2
+  &gt; &gt;&gt;&gt; 
+  &gt; &gt;&gt;&gt; 
+  &gt; &gt;&gt;&gt; My hamlib directory
+  &gt; &gt;&gt;&gt; 
+  &gt; &gt;&gt;&gt; # ls -l /usr/lib64/hamlib/
+  &gt; &gt;&gt;&gt; total 2992
+  &gt; &gt;&gt;&gt; 
+  &gt; &gt;&gt;&gt; -rwxr-xr-x   1 root root   1033 Apr 11 16:49 hamlib-alinco.la
+  &gt; &gt;&gt;&gt; -rwxr-xr-x   1 root root  26552 Apr 11 16:49 hamlib-alinco.so
+  &gt; &gt;&gt;&gt; -rwxr-xr-x   1 root root   1015 Apr 11 16:49 hamlib-aor.la
+  &gt; &gt;&gt;&gt; -rwxr-xr-x   1 root root 120816 Apr 11 16:49 hamlib-aor.so
+  &gt; &gt;&gt;&gt; -rwxr-xr-x   1 root root   1027 Apr 11 16:49 hamlib-drake.la
+  &gt; &gt;&gt;&gt; -rwxr-xr-x   1 root root  38960 Apr 11 16:49 hamlib-drake.so
+  &gt; &gt;&gt;&gt; -rwxr-xr-x   1 root root   1027 Apr 11 16:49 hamlib-dummy.la
+  &gt; &gt;&gt;&gt; -rwxr-xr-x   1 root root  67696 Apr 11 16:49 hamlib-dummy.so
+  &gt; &gt;&gt;&gt; -rwxr-xr-x   1 root root   1045 Apr 11 16:49 hamlib-easycomm.la
+  &gt; &gt;&gt;&gt; -rwxr-xr-x   1 root root  10136 Apr 11 16:49 hamlib-easycomm.so
+  &gt; &gt;&gt;&gt; -rwxr-xr-x   1 root root   1051 Apr 11 16:49 hamlib-flexradio.la
+  &gt; &gt;&gt;&gt; -rwxr-xr-x   1 root root  39064 Apr 11 16:49 hamlib-flexradio.so
+  &gt; &gt;&gt;&gt; -rwxr-xr-x   1 root root   1045 Apr 11 16:49 hamlib-fodtrack.la
+  &gt; &gt;&gt;&gt; -rwxr-xr-x   1 root root  10136 Apr 11 16:49 hamlib-fodtrack.so
+  &gt; &gt;&gt;&gt; -rwxr-xr-x   1 root root   1033 Apr 11 16:49 hamlib-gs232a.la
+  &gt; &gt;&gt;&gt; -rwxr-xr-x   1 root root  10168 Apr 11 16:49 hamlib-gs232a.so
+  &gt; &gt;&gt;&gt; -rwxr-xr-x   1 root root   1045 Apr 11 16:49 hamlib-heathkit.la
+  &gt; &gt;&gt;&gt; -rwxr-xr-x   1 root root  10152 Apr 11 16:49 hamlib-heathkit.so
+  &gt; &gt;&gt;&gt; -rwxr-xr-x   1 root root   1021 Apr 11 16:49 hamlib-icom.la
+  &gt; &gt;&gt;&gt; -rwxr-xr-x   1 root root 551152 Apr 11 16:49 hamlib-icom.so
+  &gt; &gt;&gt;&gt; -rwxr-xr-x   1 root root   1015 Apr 11 16:49 hamlib-jrc.la
+  &gt; &gt;&gt;&gt; -rwxr-xr-x   1 root root  51152 Apr 11 16:49 hamlib-jrc.so
+  &gt; &gt;&gt;&gt; -rwxr-xr-x   1 root root   1039 Apr 11 16:49 hamlib-kachina.la
+  &gt; &gt;&gt;&gt; -rwxr-xr-x   1 root root  18312 Apr 11 16:49 hamlib-kachina.so
+  &gt; &gt;&gt;&gt; -rwxr-xr-x   1 root root   1039 Apr 11 16:49 hamlib-kenwood.la
+  &gt; &gt;&gt;&gt; -rwxr-xr-x   1 root root 375544 Apr 11 16:49 hamlib-kenwood.so
+  &gt; &gt;&gt;&gt; -rwxr-xr-x   1 root root   1011 Apr 11 16:49 hamlib-kit.la
+  &gt; &gt;&gt;&gt; -rwxr-xr-x   1 root root  96312 Apr 11 16:49 hamlib-kit.so
+  &gt; &gt;&gt;&gt; -rwxr-xr-x   1 root root   1021 Apr 11 16:49 hamlib-lowe.la
+  &gt; &gt;&gt;&gt; -rwxr-xr-x   1 root root  18352 Apr 11 16:49 hamlib-lowe.so
+  &gt; &gt;&gt;&gt; -rwxr-xr-x   1 root root   1015 Apr 11 16:49 hamlib-pcr.la
+  &gt; &gt;&gt;&gt; -rwxr-xr-x   1 root root  51504 Apr 11 16:49 hamlib-pcr.so
+  &gt; &gt;&gt;&gt; -rwxr-xr-x   1 root root   1027 Apr 11 16:49 hamlib-racal.la
+  &gt; &gt;&gt;&gt; -rwxr-xr-x   1 root root  22472 Apr 11 16:49 hamlib-racal.so
+  &gt; &gt;&gt;&gt; -rwxr-xr-x   1 root root   1015 Apr 11 16:49 hamlib-rft.la
+  &gt; &gt;&gt;&gt; -rwxr-xr-x   1 root root  18328 Apr 11 16:49 hamlib-rft.so
+  &gt; &gt;&gt;&gt; -rwxr-xr-x   1 root root   1039 Apr 11 16:49 hamlib-rotorez.la
+  &gt; &gt;&gt;&gt; -rwxr-xr-x   1 root root  14264 Apr 11 16:49 hamlib-rotorez.so
+  &gt; &gt;&gt;&gt; -rwxr-xr-x   1 root root   1033 Apr 11 16:49 hamlib-rpcrig.la
+  &gt; &gt;&gt;&gt; -rwxr-xr-x   1 root root  57048 Apr 11 16:49 hamlib-rpcrig.so
+  &gt; &gt;&gt;&gt; -rwxr-xr-x   1 root root   1033 Apr 11 16:49 hamlib-rpcrot.la
+  &gt; &gt;&gt;&gt; -rwxr-xr-x   1 root root  14680 Apr 11 16:49 hamlib-rpcrot.so
+  &gt; &gt;&gt;&gt; -rwxr-xr-x   1 root root   1009 Apr 11 16:49 hamlib-rs.la
+  &gt; &gt;&gt;&gt; -rwxr-xr-x   1 root root  18360 Apr 11 16:49 hamlib-rs.so
+  &gt; &gt;&gt;&gt; -rwxr-xr-x   1 root root   1033 Apr 11 16:49 hamlib-sartek.la
+  &gt; &gt;&gt;&gt; -rwxr-xr-x   1 root root   6016 Apr 11 16:49 hamlib-sartek.so
+  &gt; &gt;&gt;&gt; -rwxr-xr-x   1 root root   1033 Apr 11 16:49 hamlib-skanti.la
+  &gt; &gt;&gt;&gt; -rwxr-xr-x   1 root root  18336 Apr 11 16:49 hamlib-skanti.so
+  &gt; &gt;&gt;&gt; -rwxr-xr-x   1 root root   1021 Apr 11 16:49 hamlib-spid.la
+  &gt; &gt;&gt;&gt; -rwxr-xr-x   1 root root  10144 Apr 11 16:49 hamlib-spid.so
+  &gt; &gt;&gt;&gt; -rwxr-xr-x   1 root root   1021 Apr 11 16:49 hamlib-tapr.la
+  &gt; &gt;&gt;&gt; -rwxr-xr-x   1 root root  18288 Apr 11 16:49 hamlib-tapr.so
+  &gt; &gt;&gt;&gt; -rwxr-xr-x   1 root root   1033 Apr 11 16:49 hamlib-tentec.la
+  &gt; &gt;&gt;&gt; -rwxr-xr-x   1 root root 149648 Apr 11 16:49 hamlib-tentec.so
+  &gt; &gt;&gt;&gt; -rwxr-xr-x   1 root root   1027 Apr 11 16:49 hamlib-tuner.la
+  &gt; &gt;&gt;&gt; -rwxr-xr-x   1 root root  18336 Apr 11 16:49 hamlib-tuner.so
+  &gt; &gt;&gt;&gt; -rwxr-xr-x   1 root root   1033 Apr 11 16:49 hamlib-uniden.la
+  &gt; &gt;&gt;&gt; -rwxr-xr-x   1 root root  96240 Apr 11 16:49 hamlib-uniden.so
+  &gt; &gt;&gt;&gt; -rwxr-xr-x   1 root root   1045 Apr 11 16:49 hamlib-winradio.la
+  &gt; &gt;&gt;&gt; -rwxr-xr-x   1 root root  79752 Apr 11 16:49 hamlib-winradio.so
+  &gt; &gt;&gt;&gt; -rwxr-xr-x   1 root root   1009 Apr 11 16:49 hamlib-wj.la
+  &gt; &gt;&gt;&gt; -rwxr-xr-x   1 root root  22456 Apr 11 16:49 hamlib-wj.so
+  &gt; &gt;&gt;&gt; -rwxr-xr-x   1 root root   1027 Apr 11 16:49 hamlib-yaesu.la
+  &gt; &gt;&gt;&gt; -rwxr-xr-x   1 root root 465152 Apr 11 16:49 hamlib-yaesu.so
+  &gt; &gt;&gt;&gt; -rwxr-xr-x   1 root root   1026 Apr 11 16:49 libhamlib++.la
+  &gt; &gt;&gt;&gt; lrwxrwxrwx   1 root root     20 Apr 11 16:50 libhamlib++.so -&gt;
+  &gt; &gt;&gt;&gt; libhamlib++.so.2.0.5
+  &gt; &gt;&gt;&gt; lrwxrwxrwx   1 root root     20 Apr 11 16:50 libhamlib++.so.2 -&gt;
+  &gt; &gt;&gt;&gt; libhamlib++.so.2.0.5
+  &gt; &gt;&gt;&gt; -rwxr-xr-x   1 root root  51928 Apr 11 16:49 libhamlib++.so.2.0.5
+  &gt; &gt;&gt;&gt; -rwxr-xr-x   1 root root    989 Apr 11 16:49 libhamlib.la
+  &gt; &gt;&gt;&gt; lrwxrwxrwx   1 root root     19 Apr 11 16:50 libhamlib.so -&gt;
+  &gt; &gt;&gt;&gt; libhamlib.so.2.0.10
+  &gt; &gt;&gt;&gt; lrwxrwxrwx   1 root root     19 Apr 11 16:50 libhamlib.so.2 -&gt;
+  &gt; &gt;&gt;&gt; libhamlib.so.2.0.10
+  &gt; &gt;&gt;&gt; -rwxr-xr-x   1 root root 119568 Apr 11 16:49 libhamlib.so.2.0.10
+
+-- 
+George L. Emigh - AB4BD
+<A HREF="http://www.georgelemigh.com">http://www.georgelemigh.com</A>
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: LibFindMacros.cmake
+Type: text/x-cmake
+Size: 4130 bytes
+Desc: not available
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/klog-users/attachments/20100502/408f558e/attachment.bin">https://lists.berlios.de/pipermail/klog-users/attachments/20100502/408f558e/attachment.bin</A>&gt;
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: FindHamlib.cmake
+Type: text/x-cmake
+Size: 453 bytes
+Desc: not available
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/klog-users/attachments/20100502/408f558e/attachment-0001.bin">https://lists.berlios.de/pipermail/klog-users/attachments/20100502/408f558e/attachment-0001.bin</A>&gt;
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	
+	<LI>Next message: <A HREF="000074.html">[Klog-users] trouble building klog
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#73">[ date ]</a>
+              <a href="thread.html#73">[ thread ]</a>
+              <a href="subject.html#73">[ subject ]</a>
+              <a href="author.html#73">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/klog-users">More information about the Klog-users
+mailing list</a><br>
+</body></html>

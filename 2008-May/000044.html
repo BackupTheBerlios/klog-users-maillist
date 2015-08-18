@@ -1,0 +1,202 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Klog-users] New version of KLog released 0.4.4/ Liberada una nueva versi&#243;n de KLog - 0.4.4
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/klog-users/2008-May/index.html" >
+   <LINK REL="made" HREF="mailto:klog-users%40lists.berlios.de?Subject=Re%3A%20%5BKlog-users%5D%20%3D%3Fiso-8859-15%3Fq%3FNew_version_of_KLog_released_0%3D2E4%3F%3D%0A%09%3D%3Fiso-8859-15%3Fq%3F%3D2E4/_Liberada_una_nueva_versi%3DF3n_de_KLog_-_0%3D2E4%3F%3D%0A%09%3D%3Fiso-8859-15%3Fq%3F%3D2E4%3F%3D&In-Reply-To=%3C200805031030.13841.jaime%40robles.nu%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   
+   <LINK REL="Next"  HREF="000045.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Klog-users] New version of KLog released 0.4.4/ Liberada una nueva versi&#243;n de KLog - 0.4.4</H1>
+    <B>Jaime Robles</B> 
+    <A HREF="mailto:klog-users%40lists.berlios.de?Subject=Re%3A%20%5BKlog-users%5D%20%3D%3Fiso-8859-15%3Fq%3FNew_version_of_KLog_released_0%3D2E4%3F%3D%0A%09%3D%3Fiso-8859-15%3Fq%3F%3D2E4/_Liberada_una_nueva_versi%3DF3n_de_KLog_-_0%3D2E4%3F%3D%0A%09%3D%3Fiso-8859-15%3Fq%3F%3D2E4%3F%3D&In-Reply-To=%3C200805031030.13841.jaime%40robles.nu%3E"
+       TITLE="[Klog-users] New version of KLog released 0.4.4/ Liberada una nueva versi&#243;n de KLog - 0.4.4">jaime at robles.nu
+       </A><BR>
+    <I>Sat May  3 10:30:07 CEST 2008</I>
+    <P><UL>
+        
+        <LI>Next message: <A HREF="000045.html">[Klog-users] New version of KLog released 0.4.4/ Liberada una nueva versi&#243;n de KLog - 0.4.4
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#44">[ date ]</a>
+              <a href="thread.html#44">[ thread ]</a>
+              <a href="subject.html#44">[ subject ]</a>
+              <a href="author.html#44">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>
+ (Versi&#243;n en espa&#241;ol al final)
+
+ I am &#160;happy to announce that the release of 0.4.4 version of KLog is
+ available.
+
+The mailing list of KLog is in <A HREF="https://lists.berlios.de/mailman/listinfo/klog-users">Klog-users at lists.berlios.de</A> for 
+discussion about KLog, wishlist, bug report, ideas, suggestions tips on 
+using, ...
+
+ The main language of the list if English.
+
+ Subscribe at:
+
+ &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<A HREF="https://lists.berlios.de/mailman/listinfo/klog-users">https://lists.berlios.de/mailman/listinfo/klog-users</A>
+
+ From the Changelog:
+
+1-may-2008 - 0.4.4
+- BUG fixed: KLog now recognises a &quot;/LH&quot; LightHouse stations (TNX G3OAG)
+- BUG fixed: TLF import did not show the imported QSO in the log. QSO 
+were not lost, just not shown. They were added to the logfile and saved 
+when saving. No data was lost. This bug was introduced in release 0.4.2 
+after an optimization in the logfile reading.
+BUG: Frequency was not compliance with ADIF as was saved in KHz instead  
+of MHz.
+- BUG fixed: If a logfile does not provide a MY_GRIDSQUARE, KLog does 
+not add the predefined MY_GRIDSQUARE.
+- BUG fixed: Some GRIDSQUARES were not detected as wrong althought they 
+were.
+- Minor fix: Corrected the URL to CTY.DAT file in the start message.
+- GUI improved: Added a progress dialog when saving.
+- GUI changes: Some widgets have been changed to prepare for the Qt4 
+migration. Specially the Led near the QRZ box that will reapear as usual 
+when KLog is migrated to Qt4.
+- Added the 70Mhz band.
+- New feature: New tool added &quot;Merge QSO data&quot; that looks in all the log 
+for the QSO that has been worked more than once and merges the data 
+like Name, QSL info, QTH, Locator, ...
+The information comming from all the appearances of a call in the log is 
+grouped in the first appearance of that call in the log.
+
+- Updated Swedish translation. (TNX SM4BE)
+- Updated Spanish translation.  (EA4TV).
+
+This release of KLog isin English, Spanish, Portuguese, Brazilian 
+portuguese, German, Serbian, Galizian and Swedish.
+
+ KLog can still have many bugs and other not yet implemented features.
+ You can download KLog from the new KLog (and my own) page.
+
+ <A HREF="http://jaime.robles.es/klog">http://jaime.robles.es/klog</A>
+
+ You will find the tar.gz sources and the debian package (debian
+ package only after some days)
+ You can see some screenshots in the web.
+
+ The KLog's new-releases email list is created using the addresses of
+ people I have previously received emails from about KLog. Feel free
+ to ask me to remove your address if you don't want to be alerted of
+ new KLog releases.
+
+ Thanks for your help and I hope you find KLog useful.
+ 73
+ =========================================================
+ (Spanish version)
+
+ Me alegro de anunciaros que ya est&#225; disponible la versi&#243;n 0.4.4 de
+ &#160;KLog.
+
+La lista de KLog es (<A HREF="https://lists.berlios.de/mailman/listinfo/klog-users">Klog-users at lists.berlios.de</A>) para charlar sobre 
+KLog, pedir  funcionalidades, avisar de errores, ideas, sugerencias, 
+trucos sobre  c&#243;mo usarlo, ...
+
+ El lenguaje principal de la lista es el ingl&#233;s.
+
+ Subscribete en:
+
+ &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<A HREF="https://lists.berlios.de/mailman/listinfo/klog-users">https://lists.berlios.de/mailman/listinfo/klog-users</A>
+
+
+ Del fichero Changelog vemos los cambios:
+
+1-mayo-2008 - 0.4.4
+
+- Error corregido:  KLog reconoce los indicativos &quot;/LH&quot; LightHouse, de 
+faros (TNX G3OAG)
+- Error corregido:  La importaci&#243;n desde TLF no mostraba los QSO 
+importados en el log. Los QSO no se perd&#237;an, pero no aparec&#237;an tras 
+importar. No hab&#237;a p&#233;rdida de datos. Este error se introdujo en la 
+versi&#243;n 0.4.2 tras una optimizaci&#243;n de la lectura del log.
+- Error corregido:  La frecuencia no era compatible con las 
+especificaciones de ADIF porque se guardaba en KHz en vez de MHz.
+- Error corregido:  Si un log no proporciona el campo MY_GRIDSQUARE, 
+KLog no a&#241;ade el MY_GRIDSQUARE predeterminado.
+- Error corregido:  Algunos locators no se detectaban como incorrectos 
+aunque lo fueran.
+- Error (menor) corregido:  Actualizada la URL al fichero CTY.DAT en el 
+mensaje inicial.
+- Interfaz gr&#225;fica mejorada: A&#241;adido un cuadro de progreso al guardar.
+- Interfaz gr&#225;fica mejorada: Se han cambiado algunos widgets de cara a 
+la futura y pr&#243;xima migraci&#243;n a Qt4. Especialmente el led cercano al al 
+cuadro de QRZ que reaparecer&#225; como siempre cuando KLog haya migrado a 
+Qt4..
+- Nueva funcionalidad:Added the 70Mhz band.
+- Nueva funcionalidad: New tool added &quot;Consolidar QSOs&quot; que busca en 
+todo el log los QSO que se han trabajado m&#225;s de una vez y consolida los 
+datos como nombre, informaci&#243;n de QSL, QTH, locator, ... La informaci&#243;n 
+de todos los QSO se almacena en el primer QSO con ese indicativo.
+
+
+- Actualizada la versi&#243;n en sueco. (TNX SM4BE)
+- Actualizada la versi&#243;n en espa&#241;ol. (EA4TV).
+
+Klog est&#225; disponible en ingl&#233;s, espa&#241;ol, portugu&#233;s, portugu&#233;s brasile&#241;o, 
+alem&#225;n, serbio, gallego y sueco.
+
+ KLog puede tener a&#250;n muchos errores y otras funciones por implementar. 
+Puedes descargar KLog de la nueva p&#225;gina de KLog (y la mia propia):
+ <A HREF="http://jaime.robles.es/klog">http://jaime.robles.es/klog</A>
+
+ Encontrar&#225;s las fuentes en tar.gz o el paquete de Debian (el paquete
+ de Debian s&#243;lo tras unos d&#237;as).
+
+ Puedes ver capturas de pantalla en la web.
+
+
+ La lista de aviso de nuevas versiones de KLog la he ido creando con
+ las direcciones de las personas que previamente me han enviado algo
+ sobre KLog. Si prefieres que no te envie estos mensajes, avisame y
+ quitar&#233; tu direcci&#243;n de la lista.
+
+ Gracias por tu ayuda y espero que KLog te resulte &#250;til.
+ 73
+
+-- 
+Un saludo,
+	Jaime Robles, EA4TV
+	<A HREF="https://lists.berlios.de/mailman/listinfo/klog-users">jaime at robles.nu</A>
+
+Visita:
+   <A HREF="http://jaime.robles.nu">http://jaime.robles.nu</A>
+   <A HREF="http://www.redlibre.net">http://www.redlibre.net</A> - La Red Libre de todos!		
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	
+	<LI>Next message: <A HREF="000045.html">[Klog-users] New version of KLog released 0.4.4/ Liberada una nueva versi&#243;n de KLog - 0.4.4
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#44">[ date ]</a>
+              <a href="thread.html#44">[ thread ]</a>
+              <a href="subject.html#44">[ subject ]</a>
+              <a href="author.html#44">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/klog-users">More information about the Klog-users
+mailing list</a><br>
+</body></html>

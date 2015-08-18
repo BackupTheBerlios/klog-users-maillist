@@ -1,0 +1,157 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Klog-users] trouble building klog
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/klog-users/2010-April/index.html" >
+   <LINK REL="made" HREF="mailto:klog-users%40lists.berlios.de?Subject=Re%3A%20%5BKlog-users%5D%20trouble%20building%20klog&In-Reply-To=%3C201004111711.14428.ab4bd%40georgelemigh.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   
+   <LINK REL="Next"  HREF="000065.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Klog-users] trouble building klog</H1>
+    <B>George L. Emigh</B> 
+    <A HREF="mailto:klog-users%40lists.berlios.de?Subject=Re%3A%20%5BKlog-users%5D%20trouble%20building%20klog&In-Reply-To=%3C201004111711.14428.ab4bd%40georgelemigh.com%3E"
+       TITLE="[Klog-users] trouble building klog">ab4bd at georgelemigh.com
+       </A><BR>
+    <I>Sun Apr 11 23:11:14 CEST 2010</I>
+    <P><UL>
+        
+        <LI>Next message: <A HREF="000065.html">[Klog-users] trouble building klog
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#64">[ date ]</a>
+              <a href="thread.html#64">[ thread ]</a>
+              <a href="subject.html#64">[ subject ]</a>
+              <a href="author.html#64">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>I'm trying to build klog on my Gentoo system, when I manually tried to build it,
+I got the same error as listed here, currently I'm trying to build it using an ebuild
+script to install it the Gentoo way, but still it cannot find hamlib.
+
+the currently installed hamlib is hamlib-1.2.10
+
+Any idea what may be the problem here?
+
+[100%] Building CXX object src/CMakeFiles/klog.dir/qrc_klog-resources.o                                               
+Linking CXX executable klog                                                                                           
+/usr/lib/gcc/x86_64-pc-linux-gnu/4.4.3/../../../../x86_64-pc-linux-gnu/bin/ld: cannot find -lhamlib                   
+collect2: ld returned 1 exit status
+make[2]: *** [src/klog] Error 1
+make[1]: *** [src/CMakeFiles/klog.dir/all] Error 2
+make: *** [all] Error 2
+
+
+My hamlib directory
+
+# ls -l /usr/lib64/hamlib/
+total 2992
+
+-rwxr-xr-x   1 root root   1033 Apr 11 16:49 hamlib-alinco.la
+-rwxr-xr-x   1 root root  26552 Apr 11 16:49 hamlib-alinco.so
+-rwxr-xr-x   1 root root   1015 Apr 11 16:49 hamlib-aor.la
+-rwxr-xr-x   1 root root 120816 Apr 11 16:49 hamlib-aor.so
+-rwxr-xr-x   1 root root   1027 Apr 11 16:49 hamlib-drake.la
+-rwxr-xr-x   1 root root  38960 Apr 11 16:49 hamlib-drake.so
+-rwxr-xr-x   1 root root   1027 Apr 11 16:49 hamlib-dummy.la
+-rwxr-xr-x   1 root root  67696 Apr 11 16:49 hamlib-dummy.so
+-rwxr-xr-x   1 root root   1045 Apr 11 16:49 hamlib-easycomm.la
+-rwxr-xr-x   1 root root  10136 Apr 11 16:49 hamlib-easycomm.so
+-rwxr-xr-x   1 root root   1051 Apr 11 16:49 hamlib-flexradio.la
+-rwxr-xr-x   1 root root  39064 Apr 11 16:49 hamlib-flexradio.so
+-rwxr-xr-x   1 root root   1045 Apr 11 16:49 hamlib-fodtrack.la
+-rwxr-xr-x   1 root root  10136 Apr 11 16:49 hamlib-fodtrack.so
+-rwxr-xr-x   1 root root   1033 Apr 11 16:49 hamlib-gs232a.la
+-rwxr-xr-x   1 root root  10168 Apr 11 16:49 hamlib-gs232a.so
+-rwxr-xr-x   1 root root   1045 Apr 11 16:49 hamlib-heathkit.la
+-rwxr-xr-x   1 root root  10152 Apr 11 16:49 hamlib-heathkit.so
+-rwxr-xr-x   1 root root   1021 Apr 11 16:49 hamlib-icom.la
+-rwxr-xr-x   1 root root 551152 Apr 11 16:49 hamlib-icom.so
+-rwxr-xr-x   1 root root   1015 Apr 11 16:49 hamlib-jrc.la
+-rwxr-xr-x   1 root root  51152 Apr 11 16:49 hamlib-jrc.so
+-rwxr-xr-x   1 root root   1039 Apr 11 16:49 hamlib-kachina.la
+-rwxr-xr-x   1 root root  18312 Apr 11 16:49 hamlib-kachina.so
+-rwxr-xr-x   1 root root   1039 Apr 11 16:49 hamlib-kenwood.la
+-rwxr-xr-x   1 root root 375544 Apr 11 16:49 hamlib-kenwood.so
+-rwxr-xr-x   1 root root   1011 Apr 11 16:49 hamlib-kit.la
+-rwxr-xr-x   1 root root  96312 Apr 11 16:49 hamlib-kit.so
+-rwxr-xr-x   1 root root   1021 Apr 11 16:49 hamlib-lowe.la
+-rwxr-xr-x   1 root root  18352 Apr 11 16:49 hamlib-lowe.so
+-rwxr-xr-x   1 root root   1015 Apr 11 16:49 hamlib-pcr.la
+-rwxr-xr-x   1 root root  51504 Apr 11 16:49 hamlib-pcr.so
+-rwxr-xr-x   1 root root   1027 Apr 11 16:49 hamlib-racal.la
+-rwxr-xr-x   1 root root  22472 Apr 11 16:49 hamlib-racal.so
+-rwxr-xr-x   1 root root   1015 Apr 11 16:49 hamlib-rft.la
+-rwxr-xr-x   1 root root  18328 Apr 11 16:49 hamlib-rft.so
+-rwxr-xr-x   1 root root   1039 Apr 11 16:49 hamlib-rotorez.la
+-rwxr-xr-x   1 root root  14264 Apr 11 16:49 hamlib-rotorez.so
+-rwxr-xr-x   1 root root   1033 Apr 11 16:49 hamlib-rpcrig.la
+-rwxr-xr-x   1 root root  57048 Apr 11 16:49 hamlib-rpcrig.so
+-rwxr-xr-x   1 root root   1033 Apr 11 16:49 hamlib-rpcrot.la
+-rwxr-xr-x   1 root root  14680 Apr 11 16:49 hamlib-rpcrot.so
+-rwxr-xr-x   1 root root   1009 Apr 11 16:49 hamlib-rs.la
+-rwxr-xr-x   1 root root  18360 Apr 11 16:49 hamlib-rs.so
+-rwxr-xr-x   1 root root   1033 Apr 11 16:49 hamlib-sartek.la
+-rwxr-xr-x   1 root root   6016 Apr 11 16:49 hamlib-sartek.so
+-rwxr-xr-x   1 root root   1033 Apr 11 16:49 hamlib-skanti.la
+-rwxr-xr-x   1 root root  18336 Apr 11 16:49 hamlib-skanti.so
+-rwxr-xr-x   1 root root   1021 Apr 11 16:49 hamlib-spid.la
+-rwxr-xr-x   1 root root  10144 Apr 11 16:49 hamlib-spid.so
+-rwxr-xr-x   1 root root   1021 Apr 11 16:49 hamlib-tapr.la
+-rwxr-xr-x   1 root root  18288 Apr 11 16:49 hamlib-tapr.so
+-rwxr-xr-x   1 root root   1033 Apr 11 16:49 hamlib-tentec.la
+-rwxr-xr-x   1 root root 149648 Apr 11 16:49 hamlib-tentec.so
+-rwxr-xr-x   1 root root   1027 Apr 11 16:49 hamlib-tuner.la
+-rwxr-xr-x   1 root root  18336 Apr 11 16:49 hamlib-tuner.so
+-rwxr-xr-x   1 root root   1033 Apr 11 16:49 hamlib-uniden.la
+-rwxr-xr-x   1 root root  96240 Apr 11 16:49 hamlib-uniden.so
+-rwxr-xr-x   1 root root   1045 Apr 11 16:49 hamlib-winradio.la
+-rwxr-xr-x   1 root root  79752 Apr 11 16:49 hamlib-winradio.so
+-rwxr-xr-x   1 root root   1009 Apr 11 16:49 hamlib-wj.la
+-rwxr-xr-x   1 root root  22456 Apr 11 16:49 hamlib-wj.so
+-rwxr-xr-x   1 root root   1027 Apr 11 16:49 hamlib-yaesu.la
+-rwxr-xr-x   1 root root 465152 Apr 11 16:49 hamlib-yaesu.so
+-rwxr-xr-x   1 root root   1026 Apr 11 16:49 libhamlib++.la
+lrwxrwxrwx   1 root root     20 Apr 11 16:50 libhamlib++.so -&gt; libhamlib++.so.2.0.5
+lrwxrwxrwx   1 root root     20 Apr 11 16:50 libhamlib++.so.2 -&gt; libhamlib++.so.2.0.5
+-rwxr-xr-x   1 root root  51928 Apr 11 16:49 libhamlib++.so.2.0.5
+-rwxr-xr-x   1 root root    989 Apr 11 16:49 libhamlib.la
+lrwxrwxrwx   1 root root     19 Apr 11 16:50 libhamlib.so -&gt; libhamlib.so.2.0.10
+lrwxrwxrwx   1 root root     19 Apr 11 16:50 libhamlib.so.2 -&gt; libhamlib.so.2.0.10
+-rwxr-xr-x   1 root root 119568 Apr 11 16:49 libhamlib.so.2.0.10
+
+-- 
+George L. Emigh - AB4BD
+<A HREF="http://www.georgelemigh.com">http://www.georgelemigh.com</A>
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	
+	<LI>Next message: <A HREF="000065.html">[Klog-users] trouble building klog
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#64">[ date ]</a>
+              <a href="thread.html#64">[ thread ]</a>
+              <a href="subject.html#64">[ subject ]</a>
+              <a href="author.html#64">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/klog-users">More information about the Klog-users
+mailing list</a><br>
+</body></html>

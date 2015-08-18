@@ -1,0 +1,113 @@
+From jaime at robles.es  Wed Jan 30 21:31:33 2013
+From: jaime at robles.es (Jaime Robles)
+Date: Wed, 30 Jan 2013 21:31:33 +0100
+Subject: [Klog-users] =?iso-8859-1?q?10_years_of_KLog_-_New_version_of_KLo?=
+	=?iso-8859-1?q?g_released_0=2E6=2E0_/_10_a=F1os_de_KLog_-_Liberada?=
+	=?iso-8859-1?q?_una_nueva_versi=F3n_de_KLog_-_0=2E6=2E0?=
+Message-ID: <CAOinu-9z0Cg81cc5nM1qerCU+TyaAtwcMtg9xR-sx9RVG=6FCQ@mail.gmail.com>
+
+(Versi?n en espa?ol al final)
+
+I am happy to announce that the release of 0.6.0 version of KLog is available.
+It is 10 year since the first release of KLog!! (time goes fast when you enjoy!)
+
+DOWNLOAD:
+You can download KLog 0.6.0 from two places:
+  - http://jaime.robles.es/download/klog-0.6.0.tar.gz
+  - http://download.savannah.gnu.org/releases/klog/klog-0.6.0.tar.gz
+
+The Debian package will be uploaded to the Debian servers during the
+following days.
+
+This releases has the following Changelog:
+
+January-2013 0.6.0
+- Bug fixed: Typo "Frecuency" changed to "Frequency" in a tooltip.
+(Debian bug: #654328) (TNX Jonas Stein)
+- Bug fixed: Typo/wishlist "Numb" changed to "Number" in main table.
+(Debian bug: #654331) (TNX Jonas Stein)
+- Bug fixed: Typo/wishlist "UTC" changed to "Time" in main table.
+(Debian bug: #654331) (TNX Jonas Stein)
+- Removal of several not needed #includes.
+- Removed some warnings on compilation.
+- GUI improved: The information boxes are now independant from the top
+right tab widget to improve usability.
+- GUI updated: Disabled the Setup tab of Hamlib until hamlib is
+properly working.
+
+KLog is available in English, Spanish, Portuguese, Brazilian
+Portuguese, German, Serbian, Galician and Swedish.
+
+The list for user discussion about KLog: User discussion, wishlist,
+tips, ideas, suggestions, ?
+http://lists.nongnu.org/mailman/listinfo/klog-users
+
+The development mailing list to coordinate the development.
+http://lists.nongnu.org/mailman/listinfo/klog-devel
+
+As before, the main language of the mailing lists is English.
+
+The KLog's new-releases email list is created using the addresses of
+people I have previously received emails from about KLog. Feel free to
+ask me to remove your address if you don't want to be alerted of new
+KLog releases.
+
+Thanks for your help and I hope you find KLog useful.
+
+73 de Jaime, EA4TV
+http://jaime.robles.es
+
+=========================================================
+
+(Spanish version)
+
+Me alegro de anunciaros que ya est? disponible la versi?n 0.6.0 de KLog.
+??Han pasado 10 a?os desde la primera versi?n de KLog!! (El tiempo
+vuela cuando uno disfruta)
+
+DESCARGAS:
+Puedes descargar KLog 0.6.0 desde dos sitios:
+  - http://jaime.robles.es/download/klog-0.6.0.tar.gz
+  - http://download.savannah.gnu.org/releases/klog/klog-0.6.0.tar.gz
+
+El paquete Debian se subir? a los servidores de Debian en los pr?ximos d?as?
+
+Esta versi?n incluye los siguientes cambios:
+
+Enero-2013  0.6.0
+- Correcci?n: Ortograf?a "Frecuency" changed to "Frequency" in a
+tooltip. (Debian bug: #654328) (TNX Jonas Stein)
+- Correcci?n: Typo/wishlist "Numb" changed to "Number" in main table.
+(Debian bug: #654331) (TNX Jonas Stein)
+- Correcci?n: Typo/wishlist "UTC" changed to "Time" in main table.
+(Debian bug: #654331) (TNX Jonas Stein)
+- Eliminaci?n de varios #includes no necesarios.
+- Eliminados algunos warnings en la compilaci?n.
+- Mejora de GUI: Los cuadros de informaci?n ahora son independientes
+del widget de arriba a la derecha para mejorar la usabilidad.
+- Mejora de GUI: Deshabilitada la pesta?a de Hamlib de la
+configuraci?n hasta que hamlib funcione bien.
+
+KLog est? disponible en ingl?s, espa?ol, portugu?s, portugu?s
+brasile?o, alem?n, serbio, gallego y sueco.
+
+
+Lista para discussion de usuarios sobre KLog: Discusi?n de usuarios,
+solicitudes, pistas, trucos, ideas, sugerencias, ?
+http://lists.nongnu.org/mailman/listinfo/klog-users
+
+Lista para coordinar el desarrollo.
+http://lists.nongnu.org/mailman/listinfo/klog-devel
+
+Como antes, el idioma principal de las listas es el ingl?s.
+
+La lista de aviso de nuevas versiones de KLog la he ido creando con
+las direcciones de las personas que previamente me han enviado algo
+sobre KLog. Si prefieres que no te env?e estos mensajes, av?same y
+quitar? tu direcci?n de la lista.
+
+Gracias por tu ayuda y espero que KLog te resulte ?til.
+
+73 de Jaime, EA4TV
+http://jaime.robles.es
+
